@@ -35,6 +35,9 @@ services:
       DOCKER_NOTEBOOK_IMAGE: quay.io/jupyter/base-notebook:latest
       # Notebook directory inside user image
       DOCKER_NOTEBOOK_DIR: /home/jovyan/work
+      LANG: fa_IR.UTF-8
+      LC_ALL: fa_IR.UTF-8
+      LANGUAGE: fa_IR.UTF-8
 
 volumes:
   jupyterhub-data:

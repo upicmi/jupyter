@@ -1,6 +1,5 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-
 # Configuration file for JupyterHub
 import os
 
@@ -54,6 +53,10 @@ c.JupyterHub.authenticator_class = "nativeauthenticator.NativeAuthenticator"
 
 # Allow anyone to sign-up without approval
 c.NativeAuthenticator.open_signup = True
+
+c.JupyterHub.template_paths = ['/srv/jupyterhub/templates']
+# Add this AFTER c.JupyterHub.extra_static_paths
+c.JupyterHub.extra_static_paths = ['/srv/jupyterhub/static']
 
 # Allowed admins
 admin = os.environ.get("JUPYTERHUB_ADMIN")

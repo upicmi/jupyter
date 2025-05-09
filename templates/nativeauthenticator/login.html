@@ -1,0 +1,34 @@
+{% extends "page.html" %}
+{% block title %}ورود به یوپیک هاب{% endblock %}
+
+{% block main %}
+<div id="login-main" class="container">
+  <form action="{{ login_url }}" method="post" role="form">
+    <div class="auth-form-header">ورود</div>
+
+    <div class="auth-form-body">
+      {% if message %}
+      <p class="error">{{ message }}</p>
+      {% endif %}
+
+      <label for="username_input">نام کاربری:</label>
+      <input id="username_input" type="text" name="username" class="form-control" autofocus required>
+
+      <label for="password_input">گذرواژه:</label>
+      <div class="input-group">
+        <input id="password_input" type="password" name="password" class="form-control">
+        <span class="input-group-addon">
+          <button id="eye" type="button" style="border:0;">👁</button>
+        </span>
+      </div>
+
+      <input type="submit" id="login_submit" class="btn btn-jupyter" value="ورود">
+
+      <hr>
+      {% if allow_signup %}
+      <p><a href="{{ signup_url }}">ثبت‌نام</a> برای ایجاد حساب کاربری جدید.</p>
+      {% endif %}
+    </div>
+  </form>
+</div>
+{% endblock %}

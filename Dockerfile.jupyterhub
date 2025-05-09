@@ -7,6 +7,17 @@ FROM quay.io/jupyterhub/jupyterhub:$JUPYTERHUB_VERSION
 # hadolint ignore=DL3013
 RUN python3 -m pip install --no-cache-dir \
     dockerspawner \
-    jupyterhub-nativeauthenticator
+    jupyterhub-nativeauthenticator \
+    chardet
+
+COPY static/favicon.ico /usr/local/share/jupyterhub/static/favicon.ico
+COPY static/custom/rtl.css /usr/local/share/jupyterhub/static/custom/rtl.css
+COPY static/fonts/IRANSansWeb.woff2 /usr/local/share/jupyterhub/static/fonts/IRANSansWeb.woff2
+COPY templates /srv/jupyterhub/templates/
+COPY static/logo.png /usr/local/share/jupyterhub/static/logo
+
+RUN apt-get update && apt-get install -y locales && \
+    sed -i -e 's/# fa_IR.UTF-8 UTF-8/fa_IR.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen fa_IR.UTF-8
 
 CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]
