@@ -7,8 +7,7 @@ FROM quay.io/jupyterhub/jupyterhub:$JUPYTERHUB_VERSION
 # hadolint ignore=DL3013
 RUN python3 -m pip install --no-cache-dir \
     dockerspawner \
-    jupyterhub-nativeauthenticator \
-    chardet
+    jupyterhub-nativeauthenticator
 
 COPY static/favicon.ico /usr/local/share/jupyterhub/static/favicon.ico
 COPY static/custom/rtl.css /usr/local/share/jupyterhub/static/custom/rtl.css
