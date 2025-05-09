@@ -57,7 +57,14 @@ c.NativeAuthenticator.manage_password = True
 c.NativeAuthenticator.auto_login = False
 c.NativeAuthenticator.allow_self_approval = True
 c.JupyterHub.api_tokens = {
-    "bad0ea22a5ba5921e1a84f37f5fa0d38448c71df78cf832f85852de24b985471": "admin-username"
+    "bad0ea22a5ba5921e1a84f37f5fa0d38448c71df78cf832f85852de24b985471": {
+        "username": "admin",  # Must be an actual admin username
+        "scopes": [
+            "admin:users",
+            "read:users",
+            "users",
+        ],
+    }
 }
 
 c.JupyterHub.template_paths = ['/srv/jupyterhub/templates']
