@@ -67,6 +67,7 @@ c.JupyterHub.load_roles = [
         ],
     }
 ]
+c.Authenticator.allow_all = True
 
 c.JupyterHub.template_paths = ['/srv/jupyterhub/templates']
 # Add this AFTER c.JupyterHub.extra_static_paths
