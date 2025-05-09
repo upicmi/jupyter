@@ -56,16 +56,19 @@ c.NativeAuthenticator.open_signup = True
 c.NativeAuthenticator.manage_password = True
 c.NativeAuthenticator.auto_login = False
 c.NativeAuthenticator.allow_self_approval = True
-c.JupyterHub.api_tokens = {
-    "bad0ea22a5ba5921e1a84f37f5fa0d38448c71df78cf832f85852de24b985471": {
-        "username": "admin",  # Must be an actual admin username
+c.JupyterHub.load_roles = [
+    {
+        "name": "laravel-api",
         "scopes": [
             "admin:users",
             "read:users",
             "users",
         ],
+        "api_tokens": [
+            "bad0ea22a5ba5921e1a84f37f5fa0d38448c71df78cf832f85852de24b985471"
+        ],
     }
-}
+]
 
 c.JupyterHub.template_paths = ['/srv/jupyterhub/templates']
 # Add this AFTER c.JupyterHub.extra_static_paths
