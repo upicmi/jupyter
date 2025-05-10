@@ -69,6 +69,10 @@ c.JupyterHub.load_roles = [
 ]
 c.Authenticator.allow_all = True
 
+c.JupyterHub.bind_url = 'http://:8000'  # your internal binding (unchanged)
+c.JupyterHub.base_url = '/'
+c.JupyterHub.external_url = 'https://notebook.upic.media'
+
 c.JupyterHub.template_paths = ['/srv/jupyterhub/templates']
 # Add this AFTER c.JupyterHub.extra_static_paths
 c.JupyterHub.extra_static_paths = ['/srv/jupyterhub/static']
